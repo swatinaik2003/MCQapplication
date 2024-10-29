@@ -1,0 +1,37 @@
+
+/* src/pages/MyExam.css */
+.my-exam {
+    padding: 20px; /* Padding around the component */
+    background-color: #fff; /* White background */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow */
+  }
+  
+  table {
+    width: 100%; /* Full width for the table */
+    border-collapse: collapse; /* Collapse borders for neatness */
+  }
+  
+  th, td {
+    padding: 10px; /* Padding inside cells */
+    text-align: left; /* Align text to the left */
+    border: 1px solid #ddd; /* Light grey border around cells */
+  }
+  
+  th {
+    background-color: #f2f2f2; /* Light grey background for header cells */
+  }
+  
+  .take-exam-button {
+    display: inline-block; /* Display as a block for better button appearance */
+    padding: 8px 12px; /* Padding for button */
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white; /* White text color */
+    text-decoration: none; /* Remove underline */
+    border-radius: 3px; /* Rounded corners for button */
+  }
+  
+  .take-exam-button:hover {
+    background-color: #0056b3; /* Darker blue for hover effect */
+  }
+  

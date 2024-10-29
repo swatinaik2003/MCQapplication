@@ -1,0 +1,43 @@
+
+/* src/components/StudentDashboard.css */
+.student-dashboard {
+  display: flex;
+}
+
+.sidebar {
+  width: 200px;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 1.5em;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar-button {
+  display: block;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #007bff; /* Blue color */
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.sidebar-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.content {
+  padding: 20px;
+  flex: 1;
+}

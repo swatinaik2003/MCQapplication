@@ -13,7 +13,7 @@
 }
 
 .class-range-table th {
-  background-color: #007bff; /* Blue background for header */
+  background-color: hsl(33, 100%, 50%); /* Blue background for header */
   color: white; /* White text for header */
 }
 

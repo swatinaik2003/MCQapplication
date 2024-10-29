@@ -1,3 +1,5 @@
+
+// src/Register.js
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
@@ -8,7 +10,6 @@ import "./Register.css";
 const Register = () => {
   const navigate = useNavigate();
 
-  // Yup validation schema
   const validationSchema = Yup.object({
     studentName: Yup.string().required("Student name is required"),
     class: Yup.string().required("Please choose a class"),
@@ -29,7 +30,6 @@ const Register = () => {
       .required("Confirm Password is required"),
   });
 
-  // useFormik hook
   const formik = useFormik({
     initialValues: {
       studentName: "",
@@ -46,7 +46,7 @@ const Register = () => {
       localStorage.setItem("user", JSON.stringify(values));
       alert("Registration successful");
       setTimeout(() => {
-        navigate("/login");
+        navigate("/studentlogin");
       }, 1000);
     },
   });

@@ -1,12 +1,12 @@
 
-import React, { useState } from 'react';
+// src/components/ExamPage.js
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
-import './ExamPage.css'; // Import the CSS file
+import './ExamPage.css';
 
 const ExamPage = () => {
-  const { course } = useParams(); // Get the course name from URL parameters
+  const { course } = useParams();
 
-  // Mapping full course names to keys used in the questions object
   const courseMapping = {
     "Introduction to C": "c",
     "Web Development": "web",
@@ -16,11 +16,9 @@ const ExamPage = () => {
     "Painting": "painting",
   };
 
-  // Normalize the course name by looking it up in the courseMapping object
   const normalizedCourse = courseMapping[course];
 
-  // Questions for each course (at least 5 questions for each)
-  const questions = {
+  const questions = useMemo(() => ({
     typing: [
       { id: 1, question: "What is the standard typing speed measured in?", options: ["Words per minute", "Characters per minute", "Pages per minute", "Lines per minute"], answer: "Words per minute" },
       { id: 2, question: "Which key is used to create a space between words?", options: ["Enter", "Backspace", "Spacebar", "Shift"], answer: "Spacebar" },
@@ -36,122 +34,130 @@ const ExamPage = () => {
       { id: 5, question: "What is the term for a painting created on a wet plaster surface?", options: ["Fresco", "Mosaic", "Collage", "Etching"], answer: "Fresco" },
     ],
     c: [
-      { id: 1, question: "What does 'C' stand for in programming?", options: ["Compiler", "Character", "Complex", "C Language"], answer: "C Language" },
-      { id: 2, question: "Which symbol is used to terminate a statement in C?", options: [".", ";", ":", "/"], answer: ";" },
-      { id: 3, question: "Which of the following is a loop in C?", options: ["for", "if", "while", "Both for and while"], answer: "Both for and while" },
-      { id: 4, question: "What is the extension of C program files?", options: [".txt", ".c", ".cpp", ".java"], answer: ".c" },
-      { id: 5, question: "Which function is used to print text on the screen in C?", options: ["scanf()", "printf()", "getchar()", "putchar()"], answer: "printf()" },
+      { id: 1, question: "What does C stand for in programming?", options: ["Compiler", "Compile", "Computer", "C Language"], answer: "C Language" },
+      { id: 2, question: "Which operator is used to assign a value to a variable in C?", options: ["=", "==", "->", ":"], answer: "=" },
+      { id: 3, question: "What is the correct way to declare a variable in C?", options: ["int x;", "x int;", "var x;", "declare x as int;"], answer: "int x;" },
+      { id: 4, question: "Which of the following is a control structure in C?", options: ["if", "for", "while", "All of the above"], answer: "All of the above" },
+      { id: 5, question: "What is the output of printf('Hello, World!');?", options: ["Hello, World!", "Hello World", "Hello, World!", "Syntax Error"], answer: "Hello, World!" },
     ],
     web: [
-      { id: 1, question: "What does HTML stand for?", options: ["Hyper Text Markup Language", "Hyper Text Marking Language", "High Text Markup Language", "Hyper Tool Markup Language"], answer: "Hyper Text Markup Language" },
-      { id: 2, question: "Which language is used for styling web pages?", options: ["HTML", "CSS", "JavaScript", "Python"], answer: "CSS" },
-      { id: 3, question: "Which HTML tag is used to create a hyperlink?", options: ["<a>", "<link>", "<href>", "<hyperlink>"], answer: "<a>" },
-      { id: 4, question: "What does CSS stand for?", options: ["Cascading Style Sheets", "Colorful Style Sheets", "Creative Style Sheets", "Computer Style Sheets"], answer: "Cascading Style Sheets" },
-      { id: 5, question: "What does 'www' stand for in a website URL?", options: ["World Wide Web", "World Web Wide", "Web World Wide", "Wide World Web"], answer: "World Wide Web" },
+      { id: 1, question: "What does HTML stand for?", options: ["Hypertext Markup Language", "Hypertext Markup Logic", "Hypertext Markup Link", "Hypertext Multilayer Language"], answer: "Hypertext Markup Language" },
+      { id: 2, question: "Which HTML tag is used to define an internal style sheet?", options: ["<style>", "<css>", "<script>", "<link>"], answer: "<style>" },
+      { id: 3, question: "Which is the correct CSS syntax?", options: ["body {color: black;}", "body:color=black;", "{body;color:black;}", "body: color black;"], answer: "body {color: black;}" },
+      { id: 4, question: "Which HTML attribute is used to define inline styles?", options: ["class", "style", "font", "styles"], answer: "style" },
+      { id: 5, question: "What does CSS stand for?", options: ["Creative Style Sheets", "Cascading Style Sheets", "Colorful Style Sheets", "Computer Style Sheets"], answer: "Cascading Style Sheets" },
     ],
     java: [
-      { id: 1, question: "Which company developed Java?", options: ["Sun Microsystems", "Microsoft", "Oracle", "IBM"], answer: "Sun Microsystems" },
-      { id: 2, question: "Which keyword is used to create a class in Java?", options: ["class", "public", "void", "new"], answer: "class" },
-      { id: 3, question: "What is the file extension of Java bytecode files?", options: [".class", ".java", ".jvm", ".jar"], answer: ".class" },
-      { id: 4, question: "Which method is used to start the execution of a Java program?", options: ["start()", "run()", "main()", "execute()"], answer: "main()" },
-      { id: 5, question: "Which of the following is a primitive data type in Java?", options: ["String", "int", "Object", "ArrayList"], answer: "int" },
+      { id: 1, question: "What is the correct way to declare a variable in Java?", options: ["int x;", "x int;", "var x;", "declare x as int;"], answer: "int x;" },
+      { id: 2, question: "Which of these is not a Java primitive type?", options: ["int", "boolean", "String", "char"], answer: "String" },
+      { id: 3, question: "What is the main method used for in Java?", options: ["To start the program", "To define a class", "To create an object", "To declare variables"], answer: "To start the program" },
+      { id: 4, question: "Which keyword is used to create an object in Java?", options: ["new", "create", "object", "this"], answer: "new" },
+      { id: 5, question: "What does JVM stand for?", options: ["Java Variable Machine", "Java Virtual Machine", "Java Version Machine", "Java Visual Machine"], answer: "Java Virtual Machine" },
     ],
     python: [
-      { id: 1, question: "What is the correct file extension for Python files?", options: [".py", ".python", ".pyt", ".pyth"], answer: ".py" },
-      { id: 2, question: "What is the keyword used to define a function in Python?", options: ["function", "def", "fun", "define"], answer: "def" },
-      { id: 3, question: "Which of the following is a valid Python data type?", options: ["Integer", "String", "List", "All of the above"], answer: "All of the above" },
-      { id: 4, question: "How do you start a comment in Python?", options: ["//", "/*", "#", "<!--"], answer: "#" },
-      { id: 5, question: "Which function is used to get input from the user in Python?", options: ["scanf()", "input()", "get()", "read()"], answer: "input()" },
+      { id: 1, question: "What is the correct extension for a Python file?", options: [".py", ".python", ".pyt", ".pt"], answer: ".py" },
+      { id: 2, question: "Which of the following is a Python data type?", options: ["list", "set", "dictionary", "All of the above"], answer: "All of the above" },
+      { id: 3, question: "How do you create a function in Python?", options: ["def myFunction()", "function myFunction()", "create myFunction()", "None of the above"], answer: "def myFunction()" },
+      { id: 4, question: "Which keyword is used to handle exceptions in Python?", options: ["catch", "except", "handle", "throw"], answer: "except" },
+      { id: 5, question: "What is the output of print(2 ** 3)?", options: ["6", "8", "9", "2"], answer: "8" },
     ],
-  };
+  }), []);
 
   const [answers, setAnswers] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [marks, setMarks] = useState(0);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [timeLeft, setTimeLeft] = useState(60);
 
-  // Handle answer change
-  const handleAnswerChange = (questionId, selectedOption) => {
-    setAnswers((prevAnswers) => ({
-      ...prevAnswers,
-      [questionId]: selectedOption,
-    }));
-  };
-
-  // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = useCallback(() => {
     let totalMarks = 0;
 
-    // Check if the course is valid
     if (questions[normalizedCourse]) {
       questions[normalizedCourse].forEach((question) => {
         if (answers[question.id] === question.answer) {
-          totalMarks += 1; // Increment mark for correct answer
+          totalMarks++;
         }
       });
-    } else {
-      console.error("Invalid course name:", normalizedCourse); // Log invalid course names
     }
 
-    setMarks(totalMarks); // Set the total marks
-    setSubmitted(true); // Set submitted state to true
-  };
+    setMarks(totalMarks);
+    setSubmitted(true);
+  }, [answers, normalizedCourse, questions]);
 
-  // Render questions for the specified course
-  const renderQuestions = () => {
-    if (!questions[normalizedCourse]) {
-      return <p>Invalid course. Please check the course name in the URL.</p>;
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => {
+        if (prev <= 1) {
+          clearInterval(timer);
+          handleSubmit();
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [handleSubmit]);
+
+  const handleAnswerChange = (questionId, selectedOption) => {
+    if (!submitted) {
+      setAnswers((prevAnswers) => ({
+        ...prevAnswers,
+        [questionId]: selectedOption,
+      }));
     }
-
-    return (
-      <form onSubmit={handleSubmit}>
-        {questions[normalizedCourse].map((question) => (
-          <div key={question.id} className="question-box">
-            <p>{question.question}</p>
-            {question.options.map((option) => (
-              <div key={option}>
-                <input
-                  type="radio"
-                  name={`question-${question.id}`}
-                  value={option}
-                  onChange={() => handleAnswerChange(question.id, option)}
-                  checked={answers[question.id] === option}
-                />
-                <label>{option}</label>
-              </div>
-            ))}
-          </div>
-        ))}
-        <button type="submit">Submit</button>
-      </form>
-    );
   };
 
-  // Render results after submission
-  const renderResults = () => {
-    if (!questions[normalizedCourse]) return null;
-
-    return (
-      <div className="result">
-        <h2>Your score is {marks} out of {questions[normalizedCourse].length}</h2>
-        <h3>Your Answers:</h3>
-        <ul>
-          {questions[normalizedCourse].map((question) => (
-            <li key={question.id}>
-              <strong>{question.question}</strong> <br />
-              Your answer: {answers[question.id] || "Not answered"} <br />
-              Correct answer: {question.answer}
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
+  const handleNext = () => {
+    if (currentQuestionIndex < questions[normalizedCourse].length - 1) {
+      setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+    }
   };
+
+  const handlePrevious = () => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex((prevIndex) => prevIndex - 1);
+    }
+  };
+
+  const currentQuestion = questions[normalizedCourse]?.[currentQuestionIndex];
 
   return (
     <div className="exam-page">
       <h1>{course} Exam</h1>
-      {submitted ? renderResults() : renderQuestions()}
+      <h2>Time Left: {timeLeft} seconds</h2>
+      {!submitted ? (
+        <div>
+          {currentQuestion && (
+            <div key={currentQuestion.id}>
+              <h3>{currentQuestion.id}. {currentQuestion.question}</h3>
+              <form>
+                {currentQuestion.options.map((option, index) => (
+                  <div key={index}>
+                    <label>
+                      <input
+                        type="radio"
+                        name={`question-${currentQuestion.id}`}
+                        value={option}
+                        onChange={() => handleAnswerChange(currentQuestion.id, option)}
+                        disabled={submitted}
+                      />
+                      {option}
+                    </label>
+                  </div>
+                ))}
+              </form>
+            </div>
+          )}
+          <button onClick={handlePrevious} disabled={currentQuestionIndex === 0}>Previous</button>
+          <button onClick={handleNext} disabled={currentQuestionIndex === questions[normalizedCourse].length - 1}>Next</button>
+          <button onClick={handleSubmit}>Submit</button>
+        </div>
+      ) : (
+        <div>
+          <h2>Your Score: {marks} / {questions[normalizedCourse].length}</h2>
+        </div>
+      )}
     </div>
   );
 };

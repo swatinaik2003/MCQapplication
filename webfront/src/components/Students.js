@@ -4,15 +4,15 @@ import './Students.css'; // Import the CSS file
 
 const Students = () => {
   const [studentList, setStudentList] = useState([
-    { id: 1, name: 'Mahima', class: '5th', course: 'Math', age: 10, gender: 'Female' },
-    { id: 2, name: 'Ashvita', class: '7th', course: 'Science', age: 12, gender: 'Female' },
-    { id: 3, name: 'Pranam', class: '10th', course: 'History', age: 15, gender: 'Male' },
-    { id: 4, name: 'John Doe', class: '5th', course: 'English', age: 10, gender: 'Male' },
-    { id: 5, name: 'Emily Davis', class: '5th', course: 'Art', age: 10, gender: 'Female' },
-    { id: 6, name: 'Alice Brown', class: '5th', course: 'Math', age: 10, gender: 'Female' },
-    { id: 7, name: 'Jane Smith', class: '5th', course: 'Science', age: 10, gender: 'Female' },
-    { id: 8, name: 'Mike Johnson', class: '5th', course: 'Math', age: 10, gender: 'Male' },
-    { id: 9, name: 'Charlie Wilson', class: '5th', course: 'English', age: 10, gender: 'Male' },
+    { id: 1, name: 'Mahima', class: '1nd', course: 'TYPING', age: 6, gender: 'Female' },
+    { id: 2, name: 'Ashvita', class: '4th', course: 'PAINTING', age: 9, gender: 'Female' },
+    { id: 3, name: 'Pranam', class: '6th', course: 'Introduction to C', age: 11, gender: 'Male' },
+    { id: 4, name: 'John Doe', class: '5th', course: 'Introduction to WEB', age: 10, gender: 'Male' },
+    { id: 5, name: 'Emily Davis', class: '8th', course: 'Introduction to JAVA', age: 13, gender: 'Female' },
+    { id: 6, name: 'Alice Brown', class: '10th', course: 'Introduction to PYTHON', age: 15, gender: 'Female' },
+    { id: 7, name: 'Jane Smith', class: '2nd', course: 'TYPING', age: 7, gender: 'Female' },
+    { id: 8, name: 'Mike Johnson', class: '3th', course: 'PAINTING', age: 8, gender: 'Male' },
+    { id: 9, name: 'Charlie Wilson', class: '7th', course: 'Introduction to C', age: 12, gender: 'Male' },
   ]);
 
   const [newStudent, setNewStudent] = useState({ name: '', class: '', course: '', age: '', gender: '' });

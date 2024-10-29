@@ -94,3 +94,32 @@
   margin: 10px 0 0;
   color: #666;
 }
+.course-details {
+  padding: 20px;
+}
+
+.course-details h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.course-item {
+  margin-bottom: 15px;
+}
+
+.course-item h3 {
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.course-item ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.course-item li {
+  margin-bottom: 5px;
+  padding: 5px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+}

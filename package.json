@@ -1,6 +1,8 @@
 {
   "dependencies": {
+    "formic": "^0.0.10",
     "formik": "^2.4.6",
-    "react-router-dom": "^6.26.2"
+    "react-router-dom": "^6.26.2",
+    "yup": "^1.4.0"
   }
 }

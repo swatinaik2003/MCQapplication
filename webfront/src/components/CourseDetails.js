@@ -1,30 +1,61 @@
 
-import React, { useState } from 'react';
-import './CourseDetails.css'; // Ensure the CSS file is created
+// src/components/CourseDetails.js
+import React from 'react';
+import './CourseDetails.css';
+
+const studentData = {
+  Typing: [
+    { name: 'Alice', class: 'Class 1' },
+    { name: 'Bob', class: 'Class 2' },
+    { name: 'Charlie', class: 'Class 3' },
+    { name: 'Ryan', class: 'Class 4' }
+  ],
+  Painting: [
+    { name: 'David', class: 'Class 1' },
+    { name: 'Eva', class: 'Class 2' },
+    { name: 'Frank', class: 'Class 3' },
+    { name: 'Mia', class: 'Class 4' }
+  ],
+  'Introduction to C': [
+    { name: 'George', class: 'Class 5' },
+    { name: 'Hannah', class: 'Class 6' },
+    { name: 'Ian', class: 'Class 7' },
+  ],
+  'Web Development': [
+    { name: 'Jack', class: 'Class 5' },
+    { name: 'Karen', class: 'Class 6' },
+    { name: 'Liam', class: 'Class 7' }
+  ],
+  'Introduction to Python': [
+    { name: 'Mia', class: 'Class 8' },
+    { name: 'Noah', class: 'Class 9' },
+    { name: 'Olivia', class: 'Class 10' }
+  ],
+  'Introduction to Java': [
+    { name: 'Paul', class: 'Class 8' },
+    { name: 'Quinn', class: 'Class 9' },
+    { name: 'Ryan', class: 'Class 10' }
+  ]
+};
 
 const CourseDetails = () => {
-  const [courses] = useState([
-    { id: 1, name: 'Typing', classRange: '1-4', description: 'Learn typing basics for young learners.' },
-    { id: 2, name: 'Introduction to C', classRange: '5-7', description: 'An introductory course on C programming.' },
-    { id: 3, name: 'Web Development', classRange: '5-7', description: 'Learn the fundamentals of web development.' },
-    { id: 4, name: 'Introduction to Java', classRange: '8-10', description: 'Understanding the basics of Java programming.' },
-    { id: 5, name: 'Introduction to Python', classRange: '8-10', description: 'A beginner-friendly course on Python programming.' },
-  ]);
+  const courses = Object.keys(studentData);
 
   return (
     <div className="course-details">
-      <h2>Course Details</h2>
-      <div className="courses-container">
-        <ul>
-          {courses.map(course => (
-            <li key={course.id} className="course-item">
-              <h3>{course.name}</h3>
-              <p>Class Range: {course.classRange}</p>
-              <p>Description: {course.description}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <h2>Available Courses</h2>
+      {courses.map((course, index) => (
+        <div key={index} className="course-item">
+          <h3>{course}</h3>
+          <ul>
+            {studentData[course].map((student, idx) => (
+              <li key={idx}>
+                {student.name} - {student.class}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </div>
   );
 };

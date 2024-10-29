@@ -74,6 +74,6 @@ body {
 
 /* Table header styles */
 .course-table th {
-  background-color: #007bff; /* Header background color */
+  background-color: #0080ff; /* Header background color */
   color: white; /* Header text color */
 }

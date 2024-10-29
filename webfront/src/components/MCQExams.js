@@ -1,4 +1,6 @@
 
+
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -53,6 +55,39 @@ const MCQExams = () => {
       },
       {
         id: 2,
+        question: 'How many fingers should be used for touch typing?',
+        options: [
+          { id: 'a', text: '2' },
+          { id: 'b', text: '5' },
+          { id: 'c', text: '10' },
+          { id: 'd', text: '8' },
+        ],
+        correctAnswer: 'c',
+      },
+      {
+        id: 3,
+        question: 'What is the fastest typing speed recorded?',
+        options: [
+          { id: 'a', text: '50 WPM' },
+          { id: 'b', text: '80 WPM' },
+          { id: 'c', text: '120 WPM' },
+          { id: 'd', text: '200 WPM' },
+        ],
+        correctAnswer: 'c',
+      },
+      {
+        id: 4,
+        question: 'Which key is used to create a new line?',
+        options: [
+          { id: 'a', text: 'Spacebar' },
+          { id: 'b', text: 'Enter' },
+          { id: 'c', text: 'Tab' },
+          { id: 'd', text: 'Shift' },
+        ],
+        correctAnswer: 'b',
+      },
+      {
+        id: 5,
         question: 'What is the correct typing posture?',
         options: [
           { id: 'a', text: 'Slouching' },
@@ -75,6 +110,51 @@ const MCQExams = () => {
         ],
         correctAnswer: 'a',
       },
+      {
+        id: 2,
+        question: 'Which color is created by mixing red and blue?',
+        options: [
+          { id: 'a', text: 'Green' },
+          { id: 'b', text: 'Purple' },
+          { id: 'c', text: 'Orange' },
+          { id: 'd', text: 'Brown' },
+        ],
+        correctAnswer: 'b',
+      },
+      {
+        id: 3,
+        question: 'What type of paint is best for beginners?',
+        options: [
+          { id: 'a', text: 'Oil paint' },
+          { id: 'b', text: 'Watercolor' },
+          { id: 'c', text: 'Acrylic' },
+          { id: 'd', text: 'Gouache' },
+        ],
+        correctAnswer: 'c',
+      },
+      {
+        id: 4,
+        question: 'What is a canvas used for?',
+        options: [
+          { id: 'a', text: 'Sculpting' },
+          { id: 'b', text: 'Drawing' },
+          { id: 'c', text: 'Painting' },
+          { id: 'd', text: 'Collage' },
+        ],
+        correctAnswer: 'c',
+      },
+      {
+        id: 5,
+        question: 'Which tool is used to apply paint?',
+        options: [
+          { id: 'a', text: 'Brush' },
+          { id: 'b', text: 'Pencil' },
+          { id: 'c', text: 'Eraser' },
+          { id: 'd', text: 'Ruler' },
+        ],
+        correctAnswer: 'a',
+      },
+
     ],
     'Introduction to C': [
       {
@@ -87,6 +167,50 @@ const MCQExams = () => {
           { id: 'd', text: 'C language' },
         ],
         correctAnswer: 'd',
+      },
+      {
+        id: 2,
+        question: 'What is the output of printf("Hello, World!");?',
+        options: [
+          { id: 'a', text: 'Hello, World!' },
+          { id: 'b', text: 'Hello, World' },
+          { id: 'c', text: 'Hello World!' },
+          { id: 'd', text: 'No output' },
+        ],
+        correctAnswer: 'a',
+      },
+      {
+        id: 3,
+        question: 'Which of the following is a correct way to declare a variable in C?',
+        options: [
+          { id: 'a', text: 'int 1number;' },
+          { id: 'b', text: 'int number1;' },
+          { id: 'c', text: '1int number;' },
+          { id: 'd', text: 'number int;' },
+        ],
+        correctAnswer: 'b',
+      },
+      {
+        id: 4,
+        question: 'What is the correct way to write a comment in C?',
+        options: [
+          { id: 'a', text: '// comment' },
+          { id: 'b', text: '/* comment */' },
+          { id: 'c', text: '<-- comment -->' },
+          { id: 'd', text: '## comment' },
+        ],
+        correctAnswer: 'a',
+      },
+      {
+        id: 5,
+        question: 'Which header file is needed for input/output operations in C?',
+        options: [
+          { id: 'a', text: '<stdlib.h>' },
+          { id: 'b', text: '<stdio.h>' },
+          { id: 'c', text: '<conio.h>' },
+          { id: 'd', text: '<string.h>' },
+        ],
+        correctAnswer: 'b',
       },
     ],
     'Web Development': [
@@ -101,6 +225,51 @@ const MCQExams = () => {
         ],
         correctAnswer: 'a',
       },
+      {
+        id: 2,
+        question: 'Which of the following is a CSS property?',
+        options: [
+          { id: 'a', text: 'color' },
+          { id: 'b', text: 'font-size' },
+          { id: 'c', text: 'background-color' },
+          { id: 'd', text: 'All of the above' },
+        ],
+        correctAnswer: 'd',
+      },
+      {
+        id: 3,
+        question: 'What does CSS stand for?',
+        options: [
+          { id: 'a', text: 'Cascading Style Sheets' },
+          { id: 'b', text: 'Computer Style Sheets' },
+          { id: 'c', text: 'Colorful Style Sheets' },
+          { id: 'd', text: 'Creative Style Sheets' },
+        ],
+        correctAnswer: 'a',
+      },
+      {
+        id: 4,
+        question: 'What is the purpose of JavaScript?',
+        options: [
+          { id: 'a', text: 'To structure content' },
+          { id: 'b', text: 'To style content' },
+          { id: 'c', text: 'To make content interactive' },
+          { id: 'd', text: 'To store data' },
+        ],
+        correctAnswer: 'c',
+      },
+      {
+        id: 5,
+        question: 'Which tag is used to define an unordered list in HTML?',
+        options: [
+          { id: 'a', text: '<ul>' },
+          { id: 'b', text: '<ol>' },
+          { id: 'c', text: '<li>' },
+          { id: 'd', text: '<list>' },
+        ],
+        correctAnswer: 'a',
+      },
+      
     ],
     'Introduction to Java': [
       {
@@ -111,6 +280,50 @@ const MCQExams = () => {
           { id: 'b', text: 'start()' },
           { id: 'c', text: 'init()' },
           { id: 'd', text: 'run()' },
+        ],
+        correctAnswer: 'a',
+      },
+      {
+        id: 2,
+        question: 'Which of the following is a Java keyword?',
+        options: [
+          { id: 'a', text: 'void' },
+          { id: 'b', text: 'function' },
+          { id: 'c', text: 'method' },
+          { id: 'd', text: 'variable' },
+        ],
+        correctAnswer: 'a',
+      },
+      {
+        id: 3,
+        question: 'What is the output of System.out.println("Hello, World!");?',
+        options: [
+          { id: 'a', text: 'Hello, World!' },
+          { id: 'b', text: 'Hello World!' },
+          { id: 'c', text: 'No output' },
+          { id: 'd', text: 'Error' },
+        ],
+        correctAnswer: 'a',
+      },
+      {
+        id: 4,
+        question: 'Which method is the entry point of a Java application?',
+        options: [
+          { id: 'a', text: 'main()' },
+          { id: 'b', text: 'start()' },
+          { id: 'c', text: 'run()' },
+          { id: 'd', text: 'init()' },
+        ],
+        correctAnswer: 'a',
+      },
+      {
+        id: 5,
+        question: 'What does JVM stand for?',
+        options: [
+          { id: 'a', text: 'Java Virtual Machine' },
+          { id: 'b', text: 'Java Variable Machine' },
+          { id: 'c', text: 'Java Visual Machine' },
+          { id: 'd', text: 'Java Vector Machine' },
         ],
         correctAnswer: 'a',
       },
@@ -127,6 +340,7 @@ const MCQExams = () => {
         ],
         correctAnswer: 'b',
       },
+      
     ],
   };
 
@@ -140,7 +354,8 @@ const MCQExams = () => {
   };
 
   // Group students by course
-  const groupedStudents = students.reduce((acc, student) => {
+  const groupedStudents = students.reduce((acc, student) =>
+     {
     if (!acc[student.course]) {
       acc[student.course] = [];
     }
@@ -155,7 +370,7 @@ const MCQExams = () => {
         <thead>
           <tr>
             <th>Course</th>
-            <th>Student Names (ID)</th>
+            <th>Student Names</th>
             <th>Exam 1</th>
             <th>Exam 2</th>
           </tr>
@@ -167,7 +382,7 @@ const MCQExams = () => {
               <td>
                 {groupedStudents[course].map(student => (
                   <div key={student.id} style={{ padding: '10px 0' }}>
-                    {student.id}: {student.name} {/* Show ID with name */}
+                    {student.name}
                   </div>
                 ))}
               </td>
@@ -195,4 +410,4 @@ const MCQExams = () => {
   );
 };
 
-export default MCQExams;
+export default MCQExams; 
