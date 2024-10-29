@@ -14,7 +14,9 @@
   margin-bottom: 20px;
   color: #333;
   font-size: 1.5em;
+  font-weight: lighter;
 }
+
 
 .sidebar ul {
   list-style-type: none;

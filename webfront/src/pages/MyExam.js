@@ -34,6 +34,10 @@ const MyExam = () => {
                 <Link to={`/exam/${course.id}`} className="take-exam-button">
                   Take Exam
                 </Link>
+                {/* New button for second exam */}
+                <Link to={`/exam/${course.id}?exam=2`} className="take-exam2-button">
+                  Take Exam 2
+                </Link>
               </td>
             </tr>
           ))}

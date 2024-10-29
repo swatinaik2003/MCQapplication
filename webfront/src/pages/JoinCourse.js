@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 import "./JoinCourse.css"; // Import CSS for styling
 
 const courses = [
-  { id: 1, name: "Painting" },
-  { id: 2, name: "Typing" },
-  { id: 3, name: "Introduction to C" },
-  { id: 4, name: "Introduction to Java" },
-  { id: 5, name: "Introduction to Web Development" },
-  { id: 6, name: "Introduction to Python" },
+  { id: 1, name: "Painting", classRange: "1 to 4" },
+  { id: 2, name: "Typing", classRange: "1 to 4" },
+  { id: 3, name: "Introduction to C", classRange: "5 to 7" },
+  { id: 4, name: "Introduction to Java", classRange: "5 to 7" },
+  { id: 5, name: "Introduction to Web Development", classRange: "8 to 10" },
+  { id: 6, name: "Introduction to Python", classRange: "8 to 10" },
 ];
 
 const JoinCourse = () => {
@@ -20,8 +20,9 @@ const JoinCourse = () => {
       <table>
         <thead>
           <tr>
-            <th>Course ID</th>  {/* Column for Course ID */}
+            <th>Course ID</th> {/* Column for Course ID */}
             <th>Course Name</th> {/* Column for Course Name */}
+            <th>Class Range</th> {/* Column for Class Range */}
             <th>Action</th> {/* Column for Action */}
           </tr>
         </thead>
@@ -30,6 +31,7 @@ const JoinCourse = () => {
             <tr key={course.id}>
               <td>{course.id}</td> {/* Display Course ID */}
               <td>{course.name}</td> {/* Display Course Name */}
+              <td>{course.classRange}</td> {/* Display Class Range */}
               <td>
                 <Link to={`/join-course/${course.id}`} className="join-button">
                   Join Course
@@ -43,4 +45,4 @@ const JoinCourse = () => {
   );
 };
 
-export default JoinCourse; // Default export this
+export default JoinCourse;

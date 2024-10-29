@@ -40,7 +40,7 @@ function App() {
 
         {/* Dashboard and Nested Routes */}
         <Route path="/dashboard" element={<MainLayout />}>
-          <Route index element={<h2>Dashboard Home</h2>} />
+          <Route index element={<div className="welcome-message"><h2>Welcome to Dashboard</h2><p>Your dashboard overview will be here.</p></div>} />
           <Route path="curriculums" element={<Curriculums />} />
           <Route path="courses" element={<CourseDetails />} />
           <Route path="mcq-exams" element={<MCQExams />} />

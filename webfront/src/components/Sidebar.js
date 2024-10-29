@@ -1,10 +1,13 @@
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './Sidebar.css'; // Import the CSS file for styling
 
 const Sidebar = () => {
-  // State to hold checkbox status for each section
+  const location = useLocation(); // Get the current location
+  const currentPath = location.pathname; // Get the current path
+
+  // State to hold checkbox status for each section (optional, based on your needs)
   const [checkedItems, setCheckedItems] = useState({
     curriculums: false,
     courses: false,
@@ -12,7 +15,7 @@ const Sidebar = () => {
     students: false,
   });
 
-  // Handle checkbox change
+  // Handle checkbox change (optional, based on your needs)
   const handleCheckboxChange = (event) => {
     const { name, checked } = event.target;
     setCheckedItems({
@@ -29,13 +32,25 @@ const Sidebar = () => {
       </div>
 
       {/* Dashboard box */}
-      <div className="sidebar-box">
-        <h4>Dashboard</h4>
+      <div className="sidebar-section">
+        <label className={`sidebar-link ${currentPath === '/dashboard' ? 'active' : ''}`}>
+          <input
+            type="checkbox"
+            name="dashboard"
+            checked={checkedItems.curriculums}
+            onChange={handleCheckboxChange}
+          />
+          <Link to="/dashboard" className="sidebar-box-item">
+            <div className="sidebar-box">
+              <h4>Dashboard</h4>
+            </div>
+          </Link>
+        </label>
       </div>
 
       {/* Curriculums box */}
       <div className="sidebar-section">
-        <label className="sidebar-link">
+        <label className={`sidebar-link ${currentPath === '/dashboard/curriculums' ? 'active' : ''}`}>
           <input
             type="checkbox"
             name="curriculums"
@@ -52,7 +67,7 @@ const Sidebar = () => {
 
       {/* Courses box */}
       <div className="sidebar-section">
-        <label className="sidebar-link">
+        <label className={`sidebar-link ${currentPath === '/dashboard/courses' ? 'active' : ''}`}>
           <input
             type="checkbox"
             name="courses"
@@ -69,7 +84,7 @@ const Sidebar = () => {
 
       {/* MCQ Exams box */}
       <div className="sidebar-section">
-        <label className="sidebar-link">
+        <label className={`sidebar-link ${currentPath === '/dashboard/mcq-exams' ? 'active' : ''}`}>
           <input
             type="checkbox"
             name="mcqExams"
@@ -86,7 +101,7 @@ const Sidebar = () => {
 
       {/* Students box */}
       <div className="sidebar-section">
-        <label className="sidebar-link">
+        <label className={`sidebar-link ${currentPath === '/dashboard/students' ? 'active' : ''}`}>
           <input
             type="checkbox"
             name="students"
