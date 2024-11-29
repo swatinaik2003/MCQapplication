@@ -1,29 +1,55 @@
 
-.class-range-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Create three equal columns */
-    gap: 20px; /* Space between the boxes */
-    margin-bottom: 20px; /* Space below the class range section */
-  }
-  
-  .class-box {
-    padding: 20px; /* Add padding to the boxes */
-    border: 2px solid #007bff; /* Border color */
-    background-color: white; /* Background color */
-    color: #007bff; /* Text color */
-    border-radius: 5px; /* Rounded corners */
-    text-align: center; /* Center text */
-    cursor: pointer; /* Pointer on hover */
-    transition: background-color 0.3s, color 0.3s; /* Transition effects */
-  }
-  
-  .class-box:hover {
-    background-color: #007bff; /* Change background on hover */
-    color: white; /* Change text color on hover */
-  }
-  
-  .selected {
-    background-color: #007bff; /* Selected button background */
-    color: white; /* Selected button text color */
-  }
-  
+/* src/pages/Courses.css */
+
+.courses {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.courses h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.course-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.course-table th, .course-table td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.course-table th {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+}
+
+.course-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.course-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.view-course-link {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+  padding: 8px 12px;
+  background-color: #e0f7ff;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.view-course-link:hover {
+  background-color: #b3e5fc;
+}

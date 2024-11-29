@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 import './MyExam.css'; // Import CSS for styling
 
 const courses = [
-  { id: 1, name: "Painting" },
-  { id: 2, name: "Typing" },
-  { id: 3, name: "Introduction to C" },
-  { id: 4, name: "Introduction to Java" },
-  { id: 5, name: "Introduction to Web Development" },
-  { id: 6, name: "Introduction to Python" },
+  { id: 1, name: "Painting", curriculum: "1 to 4" },
+  { id: 2, name: "Typing", curriculum: "1 to 4" },
+  { id: 3, name: "Introduction to C", curriculum: "5 to 7" },
+  { id: 4, name: "Introduction to Java", curriculum: "8 to 10" },
+  { id: 5, name: "Introduction to Web Development", curriculum: "5 to 7" },
+  { id: 6, name: "Introduction to Python", curriculum: "8 to 10" },
 ];
 
 const MyExam = () => {
@@ -20,21 +20,22 @@ const MyExam = () => {
       <table>
         <thead>
           <tr>
-            <th>Course ID</th> {/* Column for Course ID */}
-            <th>Course Name</th> {/* Column for Course Name */}
-            <th>Action</th> {/* Column for Action */}
+            <th>Course ID</th>
+            <th>Course Name</th>
+            <th>Curriculum</th> {/* New Column for Curriculum */}
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
           {courses.map((course) => (
             <tr key={course.id}>
-              <td>{course.id}</td> {/* Display Course ID */}
-              <td>{course.name}</td> {/* Display Course Name */}
+              <td>{course.id}</td>
+              <td>{course.name}</td>
+              <td>{course.curriculum}</td> {/* Display Curriculum */}
               <td>
                 <Link to={`/exam/${course.id}`} className="take-exam-button">
-                  Take Exam
+                  Take Exam 1
                 </Link>
-                {/* New button for second exam */}
                 <Link to={`/exam/${course.id}?exam=2`} className="take-exam2-button">
                   Take Exam 2
                 </Link>
@@ -47,4 +48,4 @@ const MyExam = () => {
   );
 };
 
-export default MyExam; // Default export this
+export default MyExam;

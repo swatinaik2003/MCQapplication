@@ -22,8 +22,6 @@ const Curriculums = () => {
 
   const [newCourse, setNewCourse] = useState({ name: '', description: '' });
   const [showForm, setShowForm] = useState(false);
-  const [newClass, setNewClass] = useState({ range: '' });
-  const [showClassForm, setShowClassForm] = useState(false);
   const navigate = useNavigate();
 
   // Handle class range selection
@@ -46,22 +44,13 @@ const Curriculums = () => {
     }));
   };
 
-  // Handle form input changes for new class
-  const handleClassInputChange = (e) => {
-    const { name, value } = e.target;
-    setNewClass((prevClass) => ({
-      ...prevClass,
-      [name]: value,
-    }));
-  };
-
   // Handle course submission
   const handleCourseSubmit = (e) => {
     e.preventDefault();
     if (!newCourse.name || !newCourse.description || !selectedRange) return;
 
     const courseToAdd = {
-      id: courses[selectedRange].length + 1, // Simple ID generation
+      id: courses[selectedRange].length + 1,
       name: newCourse.name,
       description: newCourse.description,
     };
@@ -71,23 +60,8 @@ const Curriculums = () => {
       [selectedRange]: [...prevCourses[selectedRange], courseToAdd],
     }));
 
-    setNewCourse({ name: '', description: '' }); // Reset the form
-    setShowForm(false); // Hide the form after adding
-  };
-
-  // Handle class submission
-  const handleClassSubmit = (e) => {
-    e.preventDefault();
-    if (!newClass.range) return;
-
-    // Add the new class range to the classRanges array
-    classRanges.push({
-      range: newClass.range,
-      description: "Description not provided", // You can customize this if needed
-    });
-
-    setNewClass({ range: '' }); // Reset the form
-    setShowClassForm(false); // Hide the form after adding
+    setNewCourse({ name: '', description: '' });
+    setShowForm(false);
   };
 
   // Prepare data for the class range table
@@ -105,7 +79,7 @@ const Curriculums = () => {
       <table className="class-range-table">
         <thead>
           <tr>
-            <th>Class Range</th>
+            <th>Curriculum</th>
             <th>Description</th>
           </tr>
         </thead>
@@ -123,14 +97,22 @@ const Curriculums = () => {
       {selectedRange && (
         <div className="course-box">
           <h3>Courses for Classes {selectedRange}</h3>
-          <ul>
-            {courses[selectedRange].map(course => (
-              <li key={course.id} className="course-item" onClick={() => handleCourseClick(course.name)}>
-                <h4>{course.name}</h4>
-                <p>{course.description}</p>
-              </li>
-            ))}
-          </ul>
+          <table className="courses-table">
+            <thead>
+              <tr>
+                <th>Course Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              {courses[selectedRange].map((course) => (
+                <tr key={course.id} onClick={() => handleCourseClick(course.name)}>
+                  <td>{course.name}</td>
+                  <td>{course.description}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
 
           {/* Add new course button */}
           <button onClick={() => setShowForm(true)} className="add-course-button">
@@ -165,30 +147,6 @@ const Curriculums = () => {
             </form>
           )}
         </div>
-      )}
-
-      {/* Button to add a new class */}
-      <button onClick={() => setShowClassForm(true)} className="add-class-button">
-        Add New Class
-      </button>
-
-      {/* Show form to add a new class */}
-      {showClassForm && (
-        <form onSubmit={handleClassSubmit} className="class-form">
-          <h4>Add a New Class</h4>
-          <label>
-            Class Range:
-            <input
-              type="text"
-              name="range"
-              value={newClass.range}
-              onChange={handleClassInputChange}
-              required
-            />
-          </label>
-          <button type="submit">Submit</button>
-          <button type="button" onClick={() => setShowClassForm(false)}>Cancel</button>
-        </form>
       )}
     </div>
   );

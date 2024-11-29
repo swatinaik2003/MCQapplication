@@ -47,13 +47,22 @@ const CourseDetails = () => {
       {courses.map((course, index) => (
         <div key={index} className="course-item">
           <h3>{course}</h3>
-          <ul>
-            {studentData[course].map((student, idx) => (
-              <li key={idx}>
-                {student.name} - {student.class}
-              </li>
-            ))}
-          </ul>
+          <table className="student-table">
+            <thead>
+              <tr>
+                <th>Student Name</th>
+                <th>Curriculum</th>
+              </tr>
+            </thead>
+            <tbody>
+              {studentData[course].map((student, idx) => (
+                <tr key={idx}>
+                  <td>{student.name}</td>
+                  <td>{student.class}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       ))}
     </div>

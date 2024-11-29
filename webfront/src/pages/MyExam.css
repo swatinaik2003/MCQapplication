@@ -1,50 +1,70 @@
-.my-exam {
-  padding: 10px; /* Padding around the component */
-  background-color: #f9f9f9; /* Light background color */
-  border-radius: 15px; /* Rounded corners */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow */
-  font-family: Arial, sans-serif; /* Font style */
+
+.my-exams-container {
+  max-width: 800px; /* Adjust container width */
+  margin: auto; /* Center the container */
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background for the container */
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Softer shadow */
 }
 
 h2 {
-  color: #333; /* Dark text for the title */
-  margin-bottom: 20px; /* Spacing below the title */
+  font-size: 28px;
+  color: black;
+  text-align: center; /* Center the heading */
+  margin-bottom: 20px; /* Space below heading */
 }
 
-table {
-  width: 100%; /* Full width for the table */
-  border-collapse: collapse; /* Collapse borders for neatness */
-  margin-top: 20px; /* Spacing above the table */
+.courses-table {
+  width: 100%; /* Full width */
+  margin: 20px 0; /* Space around the table */
+  border-collapse: collapse; /* Remove space between cells */
+  font-size: 16px; /* Increased font size */
 }
 
-th,
-td {
-  padding: 12px; /* Padding inside cells */
-  text-align: left; /* Align text to the left */
-  border: 1px solid #ddd; /* Light grey border around cells */
+.courses-table th, 
+.courses-table td {
+  padding: 12px; /* Increased padding for better spacing */
+  text-align:center; /* Align text to the left */
+  border: 1px solid #ccc; /* Border for cells */
 }
 
-th {
-  background-color: #f2f2f2; /* Light grey background for header cells */
+.courses-table th {
+  background-color: skyblue; /* Light grey background for header */
+  font-weight: bold; /* Bold text for header */
 }
 
-
-.take-exam-button,
-.take-exam2-button {
-  display: inline-block; /* Make links behave like buttons */
-  padding: 8px 10px; /* Adjust padding for a better button appearance */
-  margin-right: 9px; /* Spacing between buttons */
-  background-color: #0c56f4; /* Blue color for both buttons */
-  color: white; /* White text color */
-  text-decoration: none; /* Remove underline from links */
-  border-radius: 15px; /* Rounded corners */
-  width: 150px; /* Set a fixed width for uniform size */
-  text-align: center; /* Center text within button */
-  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
-  font-size: 100%;
+.courses-table tr:nth-child(even) {
+  background-color: #f9f9f9; /* Alternate row background */
 }
 
-.take-exam-button:hover,
-.take-exam2-button:hover {
-  background-color: #45a049; /* Darker green for hover effect */
+.courses-table tr:hover {
+  background-color: #eaeaea; /* Highlight row on hover */
+}
+
+.take-exam-button {
+  padding: 8px 12px; /* More padding for buttons */
+  font-size: 14px; /* Increased font size */
+  background-color: #4CAF50; /* Green button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transition */
+}
+.take-exam2-button  {
+  padding: 12px 12px; /* More padding for buttons */
+  font-size: 14px; /* Increased font size */
+  background-color:hsl(231, 100%, 50%);; /* Green button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transition */
+  
+}
+
+.take-exam-button:hover {
+  background-color: #45a049; /* Darker green on hover */
+  transform: translateY(2px); /* Lift effect on hover */
 }

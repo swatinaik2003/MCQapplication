@@ -1,4 +1,3 @@
-
 // src/pages/ExamPage.js
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
@@ -54,23 +53,27 @@ const ExamPage = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [score, setScore] = useState(null); // To store score after submission
+  const [isOptionSelected, setIsOptionSelected] = useState(false); // Track if an option has been selected
   const questionsData = coursesQuestions[id] || []; // Retrieve questions for the course
 
   const handleOptionChange = (index) => {
     const updatedOptions = [...selectedOptions];
     updatedOptions[currentQuestionIndex] = index;
     setSelectedOptions(updatedOptions);
+    setIsOptionSelected(true); // Mark that an option has been selected
   };
 
   const handleNext = () => {
     if (currentQuestionIndex < questionsData.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
+      setIsOptionSelected(false); // Reset the option selection state for the next question
     }
   };
 
   const handlePrevious = () => {
     if (currentQuestionIndex > 0) {
       setCurrentQuestionIndex(currentQuestionIndex - 1);
+      setIsOptionSelected(false); // Reset the option selection state for the previous question
     }
   };
 
@@ -105,11 +108,15 @@ const ExamPage = () => {
               ))}
               <div className="exam-buttons">
                 <button onClick={handlePrevious} disabled={currentQuestionIndex === 0}>Previous</button>
-                {currentQuestionIndex < questionsData.length - 1 ? (
-                  <button onClick={handleNext}>Next</button>
-                ) : (
+                <button 
+                  onClick={handleNext} 
+                  disabled={!isOptionSelected} // Enable the button only if an option is selected
+                >
+                  Next
+                </button>
+                {currentQuestionIndex === questionsData.length - 1 ? (
                   <button onClick={handleSubmit}>Submit</button>
-                )}
+                ) : null}
               </div>
             </>
           ) : (

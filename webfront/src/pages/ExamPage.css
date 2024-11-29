@@ -51,8 +51,8 @@ th {
 
 button {
   padding: 10px 15px; /* Padding for buttons */
-  margin-right: 10px; /* Spacing between buttons */
-  background-color: #007bff; /* Bootstrap primary color */
+  margin-right: 10px; /* Spacing between buttons 
+  background-color: #0a39f6; /* Bootstrap primary color */
   color: white; /* White text color */
   border: none; /* No border */
   border-radius: 5px; /* Rounded corners */
